@@ -15,13 +15,8 @@ body {
     justify-content: space-between;
     align-content: center;
     margin: 30px;
-    padding: 100px;
-}
-
-.ubicacion h2, h3, h4 {
+    padding: 30px;
     text-align: center;
-    padding: 5px;
-    margin: 5px;
 }
 
 .ubicacion h2 {
