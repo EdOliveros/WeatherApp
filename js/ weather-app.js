@@ -1,7 +1,7 @@
 // API CLima
-fetch('https://api.openweathermap.org/data/2.5/weather?lat=4.61&lon=-74.08&appid=6feea6f3fac0889a380448c28f699944&units=metric')
-    .then(res => res.json())
-    .then(response => console.log(response))
+// fetch('https://api.openweathermap.org/data/2.5/weather?lat=4.61&lon=-74.08&appid=6feea6f3fac0889a380448c28f699944&units=metric')
+//     .then(res => res.json())
+//     .then(response => console.log(response))
 
 
 // API Lugares
@@ -17,13 +17,13 @@ fetch('https://api.openweathermap.org/data/2.5/weather?lat=4.61&lon=-74.08&appid
 async function getCity(city) {
         const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q= ${city} &limit=5&appid=6feea6f3fac0889a380448c28f699944`)
         const data = await response.json()
-        const lat = (data[0].lon)
-        const lon = (data[0].lat)
-        console.log(lat, lon)
+        const lat = (data[0].lat)
+        const lon = (data[0].lon)
+        getWeather(lat, lon)
 }
 
-async function getWeather(lon, lat) {
-    const response = await fetch(``)
-    const data = response.json()
-
+async function getWeather(lat, lon) {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=6feea6f3fac0889a380448c28f699944&units=metric`)
+    const data = await response.json()
+    console.log(data)
 }
