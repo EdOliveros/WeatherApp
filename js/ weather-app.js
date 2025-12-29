@@ -15,7 +15,7 @@
     // }
     
 async function getCity(city) {
-        const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q= ${city} &limit=5&appid=6feea6f3fac0889a380448c28f699944`)
+        const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q= ${city} &limit=5&appid=6feea6f3fac0889a380448c28f699944`)
         const data = await response.json()
         const lat = (data[0].lat)
         const lon = (data[0].lon)
