@@ -5,8 +5,31 @@ body {
     font-weight: weight;
     font-style: normal;
     font-variation-settings:"GRAD" 0;
+    color: #040838 ;
+    background: linear-gradient(180deg, 
+        #0C2D48 0%,      /* Azul noche superior */
+        #1A3F6B 20%,     /* Transición media */
+        #2A5A8F 50%,     /* Azul medio */
+        #3BA0D8 100%     /* Azul cielo inferior */
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+.brand {
+    color: #ffffff;
+}
+
+.search {
+    border-radius: 20px;
+    padding: 5px 20px;
+    background-color: #e6e7ed;  
+    border: none; 
+}
+
+.search:focus {
     color: #040838;
-    /* color: #00u12a; */
+    outline: none;
 }
 
 .header {
@@ -22,16 +45,18 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: baseline;
+    /* align-content: end; */
 }
 .ubicacion {
-    background-color: #8fb1be;
+    background-color: #8fb1be80;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-content: center;
-    margin: 10px;
-    padding: 20px 50px;
+    align-content: baseline;
+    margin: 20px;
+    padding: 50px;
+    height: fit-content;
+    width: fit-content;
     text-align: center;
     border-radius: 20px;
 }
@@ -41,15 +66,15 @@ body {
 }
 
 .informacion {
-    background-color: #8fb1be;
+    background-color: #8fb1be80;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    margin: 10px;
-    padding: 50px 10px;
-    width: auto;
-    height: auto;
+    margin: 20px;
+    padding: 50px;
+    height: fit-content;
+    width: fit-content;
     border-radius: 20px;
 }
 
@@ -58,13 +83,20 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    /* background-color: #fcc560; */
-    background-color: #a0cbad;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px;
     margin: 10px;
+    /* background-color: #a0cbad; */
+    background: linear-gradient(180deg, 
+        #0C2D48 0%,      /* Azul noche superior */
+        #1A3F6B 20%,     /* Transición media */
+        #2A5A8F 50%,     /* Azul medio */
+        #3BA0D8 100%     /* Azul cielo inferior */
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
 }
 
 .informacion div, p {
