@@ -1,5 +1,12 @@
 body {
-    background-color: rgb(101, 145, 150);
+    background-color: #a0cbad;
+    font-family: "Google Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-variation-settings:"GRAD" 0;
+    color: #040838;
+    /* color: #00u12a; */
 }
 
 .contenedor {
@@ -9,14 +16,15 @@ body {
     align-content: baseline;
 }
 .ubicacion {
-    background-color: aquamarine;
+    background-color: #8fb1be;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-content: center;
-    margin: 30px;
-    padding: 30px;
+    margin: 10px;
+    padding: 20px 50px;
     text-align: center;
+    border-radius: 20px;
 }
 
 .ubicacion h2 {
@@ -24,23 +32,25 @@ body {
 }
 
 .informacion {
-    background-color: aqua;
+    background-color: #8fb1be;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    margin: 30px;
-    padding: 30px;
+    margin: 10px;
+    padding: 50px 10px;
     width: auto;
     height: auto;
+    border-radius: 20px;
 }
 
 .informacion div {
-    margin: 20px;
+    margin: 10px;
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: violet;
+    /* background-color: #fcc560; */
+    background-color: #a0cbad;
     display: flex;
     align-items: center;
     justify-content: center;
