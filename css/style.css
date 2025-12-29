@@ -9,6 +9,15 @@ body {
     /* color: #00u12a; */
 }
 
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px;
+}
+
 .contenedor {
     display: flex;
     flex-wrap: wrap;

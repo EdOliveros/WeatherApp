@@ -61,6 +61,11 @@ function renderDetails(d) {
 
 getCity('Bogota')
 
-function search(city) {
-    getCity(city)
-}
+const searchInput = document.getElementById('searchInput')
+
+searchInput.addEventListener('keydown', function(event) {
+    if(event.key === 'Enter') {
+        event.preventDefault();
+        getCity(searchInput.value)
+    }
+})
