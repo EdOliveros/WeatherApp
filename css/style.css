@@ -20,65 +20,74 @@ body {
     color: #ffffff;
 }
 
+.contenedor {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+}
+
+.contenedor-search {
+    display: flex;
+    flex: auto;
+    justify-content: center;
+    margin: 20px 0px 40px 0px;
+}
+
 .search {
     border-radius: 20px;
     padding: 5px 20px;
+    margin: 0px 40px;
     background-color: #e6e7ed;  
+    opacity: 50%;
     border: none; 
+    width: auto;
+    display: flex;
+    flex: auto;
 }
 
 .search:focus {
-    color: #040838;
     outline: none;
 }
 
-.header {
+#location-contenedor {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    margin: 10px;
-}
-
-.contenedor {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* align-content: end; */
-}
-.ubicacion {
-    background-color: #8fb1be80;
-    display: flex;
+    flex: auto;
     flex-direction: column;
-    justify-content: space-between;
-    align-content: baseline;
-    margin: 20px;
-    padding: 50px;
-    height: fit-content;
-    width: fit-content;
+    margin: 30px 0px;
+    padding: 0px;
     text-align: center;
-    border-radius: 20px;
+    color: white;
 }
 
-.ubicacion h2 {
-    font-size: xxx-large;
+.ciudad {
+    margin: 0px;
+    padding: 0px;
 }
 
-.informacion {
+.temperatura {
+    margin: 0px;
+    padding: 0px;
+    font-size: 70px;
+}
+
+.clima {
+    margin: 0px;
+    padding: 0px;
+}
+
+#informacion-contenedor {
     background-color: #8fb1be80;
     display: flex;
+    flex: auto;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    margin: 20px;
+    margin: 20px 40px;
     padding: 50px;
-    height: fit-content;
-    width: fit-content;
     border-radius: 20px;
 }
 
-.informacion div {
+#informacion-contenedor div {
     margin: 10px;
     width: 100px;
     height: 100px;
@@ -99,6 +108,11 @@ body {
     animation: gradientShift 15s ease infinite;
 }
 
-.informacion div, p {
+#informacion-contenedor div, p {
     text-align: center;
+}
+
+.imagen { 
+    width: 60px;
+    filter: brightness(0) invert(1);
 }
