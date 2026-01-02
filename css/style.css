@@ -24,11 +24,12 @@ body {
     display: flex;
     flex: auto;
     flex-direction: column;
+    align-items: center;
 }
 
 .contenedor-search {
     display: flex;
-    flex: auto;
+    flex: auto;     
     justify-content: center;
     margin: 20px 0px 40px 0px;
 }
@@ -112,7 +113,54 @@ body {
     text-align: center;
 }
 
-.imagen { 
-    width: 60px;
+/* Cards */
+
+.icons-container {
+    display: flex;
+    flex: auto;
+    flex-wrap: wrap;
+    padding: 20px;
+    border-radius: 20px;
+    border: 3px solid #5d63a0;
+    margin: 50px;
+    padding: 30px;
+    width: fit-content;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    margin: 5px;
+    padding: 5px;
+}
+
+.box {
+    display: flex;
+    flex: auto;
+    background-color: #688dab;
+    height: 10px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+.img-container {
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    align-items: center;
+}
+
+.line {
+    background-color: #67717b;
+    height: 90px;
+    width: 3px;
+    border-radius: 2px;
+    margin-left: 10px;
+}
+
+.img { 
+    width: 80px;
+    height: auto;
     filter: brightness(0) invert(1);
 }
