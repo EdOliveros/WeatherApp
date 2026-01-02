@@ -88,31 +88,6 @@ body {
     border-radius: 20px;
 }
 
-#informacion-contenedor div {
-    margin: 10px;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    margin: 10px;
-    /* background-color: #a0cbad; */
-    background: linear-gradient(180deg, 
-        #0C2D48 0%,      /* Azul noche superior */
-        #1A3F6B 20%,     /* Transición media */
-        #2A5A8F 50%,     /* Azul medio */
-        #3BA0D8 100%     /* Azul cielo inferior */
-    );
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-}
-
-#informacion-contenedor div, p {
-    text-align: center;
-}
-
 /* Cards */
 
 .icons-container {
@@ -132,7 +107,8 @@ body {
     flex-direction: column;
     width: auto;
     margin: 5px;
-    padding: 5px;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .box {
@@ -162,5 +138,39 @@ body {
 .img { 
     width: 80px;
     height: auto;
-    filter: brightness(0) invert(1);
+}
+
+#rain {
+    background-color: #30324e;
+}
+
+/* Mapas */
+
+#maps-container {
+    display: flex;
+    flex: auto;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin: 20px;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #5d63a0;
+    border-radius: 20px;
+}
+
+.map-card {
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    padding: 10px;
+    margin: 20px;
+}
+
+.map-card img {
+    width: 150px;
+    border-radius: 20px;
+}
+
+.map-card p {
+    color: #67717b;
 }
