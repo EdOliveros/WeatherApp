@@ -76,18 +76,6 @@ body {
     padding: 0px;
 }
 
-#informacion-contenedor {
-    background-color: #8fb1be80;
-    display: flex;
-    flex: auto;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    margin: 20px 40px;
-    padding: 50px;
-    border-radius: 20px;
-}
-
 /* Cards */
 
 .icons-container {
@@ -107,17 +95,7 @@ body {
     flex-direction: column;
     width: auto;
     margin: 5px;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.box {
-    display: flex;
-    flex: auto;
-    background-color: #688dab;
-    height: 10px;
-    border-radius: 20px;
-    margin-bottom: 30px;
+    padding: 5px;
 }
 
 .img-container {
@@ -133,44 +111,4 @@ body {
     width: 3px;
     border-radius: 2px;
     margin-left: 10px;
-}
-
-.img { 
-    width: 80px;
-    height: auto;
-}
-
-#rain {
-    background-color: #30324e;
-}
-
-/* Mapas */
-
-#maps-container {
-    display: flex;
-    flex: auto;
-    flex-wrap: wrap;
-    padding: 10px;
-    margin: 20px;
-    align-items: center;
-    justify-content: center;
-    border: 3px solid #5d63a0;
-    border-radius: 20px;
-}
-
-.map-card {
-    display: flex;
-    width: fit-content;
-    flex-direction: column;
-    padding: 10px;
-    margin: 20px;
-}
-
-.map-card img {
-    width: 150px;
-    border-radius: 20px;
-}
-
-.map-card p {
-    color: #67717b;
 }
