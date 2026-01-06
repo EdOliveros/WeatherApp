@@ -69,9 +69,7 @@ function getIcon(details) {
     const icon = document.getElementById('icon-container')
     
     icon.innerHTML = `    
-    <div class="img-container">
-        <img src="https://openweathermap.org/img/wn/${details.Icon.data}@2x.png" alt="" class="img">
-    </div>
+      <img src="https://openweathermap.org/img/wn/${details.Icon.data}@2x.png" alt="" class="img">
     `
 }
 
@@ -84,14 +82,13 @@ function getDetails(details) {
         div.className = 'card';
         div.innerHTML = `
             <p>${item.titulo}</p>
-            <img src="${item.img}">
+            <i class="wi ${item.iconClass}"></i>
             <p>${item.data}</p>
         `;
         icon.appendChild(div);
     });
 
 }
-
 
 async function getWeather(lat, lon) {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=6feea6f3fac0889a380448c28f699944&units=metric`)
@@ -104,76 +101,93 @@ async function getWeather(lat, lon) {
         Clouds: {
             titulo: "Nubes",
             data: data.clouds.all,
-            img: "./img/Icons8/icons8-aguacero-100.png"
-        },
-        Temperatura: {
+            iconClass: "wi-day-sunny"
+          },
+          Temperatura: {
             titulo: "Temperatura",
-            data: data.main.temp
+            data: data.main.temp,
+            iconClass: "wi-day-sunny"
+          },
+          GrndLevel: {
+            titulo: "Nivel del suelo",
+            data: data.main.grnd_level,
+            iconClass: "wi-day-sunny"
         },
-  GrndLevel: {
-    titulo: "Nivel del suelo",
-    data: data.main.grnd_level
-  },
-  Humidity: {
-    titulo: "Humedad",
-    data: data.main.humidity
-  },
-  Pressure: {
-    titulo: "Presión",
-    data: data.main.pressure
-  },
-  SeaLevel: {
-    titulo: "Nivel del mar",
-    data: data.main.sea_level
-  },
-  TemMax: {
-    titulo: "Temperatura Máx",
-    data: data.main.temp_max
-  },
-  TempMin: {
-    titulo: "Temperatura Mín",
-    data: data.main.temp_min
-  },
-  SensacionTermica: {
-    titulo: "Sensación térmica",
-    data: data.main.feels_like
-  },
-  Ciudad: {
-    titulo: "Ciudad",
-    data: data.name
-  },
-  Pais: {
-    titulo: "País",
-    data: data.sys.country
-  },
-  TimeZone: {
-    titulo: "Zona horaria",
-    data: data.timezone
-  },
-  Visibility: {
-    titulo: "Visibilidad",
-    data: data.visibility
-  },
-  Description: {
-    titulo: "Descripción",
-    data: Description
-  },
-  Main: {
-    titulo: "Clima principal",
-    data: data.weather[0].main
-  },
-  Icon: {
-    titulo: "Ícono clima",
-    data: data.weather[0].icon
-  },
-  WindSpeed: {
-    titulo: "Velocidad viento",
-    data: data.wind.speed
-  },
-  WindDeg: {
-    titulo: "Dirección viento",
-    data: data.wind.deg
-  }
+        Humidity: {
+          titulo: "Humedad",
+          data: data.main.humidity,
+          iconClass: "wi-humidity"
+        },
+        Pressure: {
+          titulo: "Presión",
+          data: data.main.pressure,
+          iconClass: "wi-humidity"
+        },
+        SeaLevel: {
+          titulo: "Nivel del mar",
+          data: data.main.sea_level,
+          iconClass: "wi-humidity"
+        },
+        TemMax: {
+          titulo: "Temperatura Máx",
+          data: data.main.temp_max,
+          iconClass: "wi-humidity"
+        },
+        TempMin: {
+          titulo: "Temperatura Mín",
+          data: data.main.temp_min,
+          iconClass: "wi-humidity"
+        },
+        SensacionTermica: {
+          titulo: "Sensación térmica",
+          data: data.main.feels_like,
+          iconClass: "wi-humidity"
+        },
+        Ciudad: {
+          titulo: "Ciudad",
+          data: data.name,
+          iconClass: "wi-humidity"
+        },
+        Pais: {
+          titulo: "País",
+          data: data.sys.country,
+          iconClass: "wi-humidity"
+        },
+        TimeZone: {
+          titulo: "Zona horaria",
+          data: data.timezone,
+          iconClass: "wi-humidity"
+        },
+        Visibility: {
+          titulo: "Visibilidad",
+          data: data.visibility,
+          iconClass: "wi-humidity"
+        },
+        Description: {
+          titulo: "Descripción",
+          data: Description,
+          iconClass: "wi-humidity"
+        },
+        Main: {
+          titulo: "Clima principal",
+          data: data.weather[0].main,
+          iconClass: "wi-humidity"
+        },
+        Icon: {
+          titulo: "Ícono clima",
+          data: data.weather[0].icon,
+          iconClass: "wi-humidity"
+        },
+        WindSpeed: {
+          titulo: "Velocidad viento",
+          data: data.wind.speed,
+          iconClass: "wi-humidity"
+        },
+        WindDeg: {
+          titulo: "Dirección viento",
+          data: data.wind.deg,
+          iconClass: "wi-humidity"
+        }
 };
 
 
