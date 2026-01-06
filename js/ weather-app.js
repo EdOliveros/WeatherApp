@@ -65,32 +65,30 @@ searchInput.addEventListener('keydown', function(event) {
     } 
 })
 
+function getIcon(details) {
+    const icon = document.getElementById('icon-container')
+    
+    icon.innerHTML = `    
+    <div class="img-container">
+        <img src="https://openweathermap.org/img/wn/${details.Icon.data}@2x.png" alt="" class="img">
+    </div>
+    `
+}
+
 function getDetails(details) {
     
-    const icon = document.getElementById('icons-container')
+    const icon = document.getElementById('details-container')
 
-    icon.innerHTML = `
-    
-        <div class="card">
-            <p class="box">${details.Description}<p>
-            <div class="img-container">
-                <img src="https://openweathermap.org/img/wn/${details.Icon}@2x.png" alt="" class="img">
-                <div class="line"></div>
-            </div>
-        </div>
-    
-    `
-
-    for (const [titulo, description] of Object.entries(details)) {
-        const div = document.createElement('div')
+    Object.values(details).forEach(item => {
+        const div = document.createElement('div');
         div.className = 'card';
         div.innerHTML = `
-            <h3>${titulo}</h3>
-            <p>${description}</p>
+            <p>${item.titulo}</p>
+            <img src="${item.img}">
+            <p>${item.data}</p>
         `;
-
-        icon.appendChild(div)
-    }
+        icon.appendChild(div);
+    });
 
 }
 
@@ -99,58 +97,91 @@ async function getWeather(lat, lon) {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=6feea6f3fac0889a380448c28f699944&units=metric`)
     const data = await response.json()
 
-    console.log(data)
-    console.log("Pais: " + data.sys.country)
-    console.log("Ciudad: " + data.name)
-    console.log("Temperatura: " + data.main.temp)
-    console.log("Sensacion Termica: " + data.main.feels_like)
-    console.log("Description: " + data.weather[0].description)
-    console.log("Main: " + data.weather[0].main)
-    console.log("Icon Code: " + data.weather[0].icon)
-    console.log("Couds: " + data.clouds.all)
-    console.log("Visibility: " + data.visibility)
-    console.log("Wind Speed: " + data.wind.speed)
-    console.log("Wind Deg: " + data.wind.deg)
-    console.log("GrndLevel:" + data.main.grnd_level)
-    console.log("Humidity: " + data.main.humidity)
-    console.log("Pressure: " + data.main.pressure)
-    console.log("SeaLevel: " + data.main.sea_level)
-    console.log("TemMax: " + data.main.temp_max)
-    console.log("TempMin: " + data.main.temp_min)
-    console.log("Time Zone: " + data.timezone)
-    console.log("Visibility: " + data.visibility)
-
     const Description = capitalizarOracion(data.weather[0].description)
 
     const details = {
-        Clouds: data.clouds.all,
-        
-        Temperatura: data.main.temp, 
-        GrndLevel: data.main.grnd_level,
-        Humidity: data.main.humidity,
-        Pressure: data.main.pressure,
-        SeaLevel: data.main.sea_level,
-        TemMax: data.main.temp_max,
-        TempMin: data.main.temp_min,
-        SensacionTermica: data.main.feels_like, 
-        
-        Ciudad: data.name, 
-        Pais: data.sys.country, 
 
-        TimeZone: data.timezone,
-        Visibility: data.visibility,
+        Clouds: {
+            titulo: "Nubes",
+            data: data.clouds.all,
+            img: "./img/Icons8/icons8-aguacero-100.png"
+        },
+        Temperatura: {
+            titulo: "Temperatura",
+            data: data.main.temp
+        },
+  GrndLevel: {
+    titulo: "Nivel del suelo",
+    data: data.main.grnd_level
+  },
+  Humidity: {
+    titulo: "Humedad",
+    data: data.main.humidity
+  },
+  Pressure: {
+    titulo: "Presión",
+    data: data.main.pressure
+  },
+  SeaLevel: {
+    titulo: "Nivel del mar",
+    data: data.main.sea_level
+  },
+  TemMax: {
+    titulo: "Temperatura Máx",
+    data: data.main.temp_max
+  },
+  TempMin: {
+    titulo: "Temperatura Mín",
+    data: data.main.temp_min
+  },
+  SensacionTermica: {
+    titulo: "Sensación térmica",
+    data: data.main.feels_like
+  },
+  Ciudad: {
+    titulo: "Ciudad",
+    data: data.name
+  },
+  Pais: {
+    titulo: "País",
+    data: data.sys.country
+  },
+  TimeZone: {
+    titulo: "Zona horaria",
+    data: data.timezone
+  },
+  Visibility: {
+    titulo: "Visibilidad",
+    data: data.visibility
+  },
+  Description: {
+    titulo: "Descripción",
+    data: Description
+  },
+  Main: {
+    titulo: "Clima principal",
+    data: data.weather[0].main
+  },
+  Icon: {
+    titulo: "Ícono clima",
+    data: data.weather[0].icon
+  },
+  WindSpeed: {
+    titulo: "Velocidad viento",
+    data: data.wind.speed
+  },
+  WindDeg: {
+    titulo: "Dirección viento",
+    data: data.wind.deg
+  }
+};
 
-        // Weather
-        Description: Description,
-        Main: data.weather[0].main, 
-        Icon: data.weather[0].icon, 
 
-        WindSpeed: data.wind.speed,
-        WindDeg: data.wind.deg
-    }
+    console.log(details)
 
     renderCiudad(data.name, data.sys.country, data.main.temp, data.weather[0].main, data.main.feels_like)
     getDetails(details)
+    getIcon(details)
 }
 
 getCity('Bogota')
