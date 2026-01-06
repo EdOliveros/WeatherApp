@@ -68,7 +68,7 @@ searchInput.addEventListener('keydown', function(event) {
 function getIcon(icon) {
     const iconContainer = document.getElementById('details-container')
     
-    iconContainer.innerHTML += `    
+    iconContainer.innerHTML = `    
       <div class="card">
         <p>${icon.title}</p>
         <img src="https://openweathermap.org/img/wn/${icon.data}@2x.png" alt="" class="img">
@@ -173,10 +173,10 @@ async function getWeather(lat, lon) {
           }
 
 };
-    console.log(details)
+    console.log(details);
 
-    renderCiudad(data.name, data.sys.country, data.main.temp, data.weather[0].main, data.main.feels_like)
-    getIcon(icon)
+    renderCiudad(data.name, data.sys.country, data.main.temp, data.weather[0].main, data.main.feels_like);
+    getIcon(icon);
     getDetails(details)
 }
 
