@@ -176,7 +176,6 @@ async function getWeather(lat, lon) {
   }
 };
 
-
     console.log(details)
 
     renderCiudad(data.name, data.sys.country, data.main.temp, data.weather[0].main, data.main.feels_like)
