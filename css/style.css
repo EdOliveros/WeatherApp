@@ -112,3 +112,9 @@ body {
     border-radius: 2px;
     margin-left: 10px;
 }
+
+#maps-container {
+  height: 500px !important;
+  width: 500px;
+  position: relative;
+}
