@@ -1,0 +1,121 @@
+Body {
+    background-color: #a0cbad;
+    font-family: "Google Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-variation-settings:"GRAD" 0;
+    color: #040838 ;
+    background: linear-gradient(180deg, 
+        #0C2D48 0%,      
+        #1A3F6B 20%,     
+        #2A5A8F 50%,     
+        #3BA0D8 100%     
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: white;
+} 
+
+.contenedor-search {
+    display: flex;
+    flex: auto;     
+    justify-content: center;
+    margin: 20px 0px 40px 0px;
+}
+
+.search {
+    border-radius: 20px;
+    padding: 5px 20px;
+    margin: 0px 40px;
+    background-color: #e6e7ed;  
+    opacity: 50%;
+    border: none; 
+    width: auto;
+    display: flex;
+    flex: auto;
+}
+
+.search:focus {
+    outline: none;
+}
+
+.main-container {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resume-container {
+    display: flex;
+    flex: auto;
+    text-align: center;
+}
+
+.location-contenedor {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.ciudad {
+    margin: 0px;
+    padding: 0px;
+}
+
+.temperatura {
+    margin: 0px;
+    padding: 0px;
+    font-size: 70px;
+}
+
+.clima {
+    margin: 0px;
+    padding: 0px;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.card {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.details-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;           /* todas en una fila */
+    gap: 12px;
+    overflow-x: auto;            /* scroll horizontal */
+    overflow-y: hidden;
+    padding: 10px;
+    -webkit-overflow-scrolling: touch; 
+}
+
+.details-container {
+  /* tus estilos existentes */
+  -ms-overflow-style: none;  /* IE y Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.details-container::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
+
+#maps-container {
+  height: 500px !important;
+  width: 500px;
+  position: relative;
+}

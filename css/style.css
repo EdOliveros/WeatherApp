@@ -1,121 +1,310 @@
-Body {
-    background-color: #a0cbad;
-    font-family: "Google Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
-    font-variation-settings:"GRAD" 0;
-    color: #040838 ;
-    background: linear-gradient(180deg, 
-        #0C2D48 0%,      
-        #1A3F6B 20%,     
-        #2A5A8F 50%,     
-        #3BA0D8 100%     
-    );
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-    color: white;
-} 
+/* Reset y base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  background: linear-gradient(180deg, 
+    #0C2D48 0%,      
+    #1A3F6B 20%,     
+    #2A5A8F 50%,     
+    #3BA0D8 100%     
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  font-family: "Google Sans", sans-serif;
+  font-optical-sizing: auto;
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Contenedor principal responsive */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+/* Search bar moderna con glassmorphism */
 .contenedor-search {
-    display: flex;
-    flex: auto;     
-    justify-content: center;
-    margin: 20px 0px 40px 0px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 0 40px;
 }
 
 .search {
-    border-radius: 20px;
-    padding: 5px 20px;
-    margin: 0px 40px;
-    background-color: #e6e7ed;  
-    opacity: 50%;
-    border: none; 
-    width: auto;
-    display: flex;
-    flex: auto;
+  border-radius: 30px;
+  padding: 15px 30px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 18px;
+  width: 100%;
+  max-width: 500px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.search::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .search:focus {
-    outline: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
-.main-container {
-    display: flex;
-    flex: auto;
-    flex-direction: column;
-    align-items: center;
-}
-
+/* Resumen de clima centrado y escalable */
 .resume-container {
-    display: flex;
-    flex: auto;
-    text-align: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .location-contenedor {
-    display: flex;
-    flex: auto;
-    flex-direction: column;
-    margin: 0px;
-    padding: 0px;
-    text-align: center;
+  margin-bottom: 20px;
 }
 
 .ciudad {
-    margin: 0px;
-    padding: 0px;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .temperatura {
-    margin: 0px;
-    padding: 0px;
-    font-size: 70px;
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 300;
+  margin: 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .clima {
-    margin: 0px;
-    padding: 0px;
+  font-size: 1.5rem;
+  opacity: 0.9;
+  margin-top: 10px;
 }
 
+/* Carousel de pronóstico horizontal */
 .carousel {
-    width: 100%;
-    overflow: hidden;
-    padding: 20px;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
 }
 
+/* Tarjetas optimizadas para tu estructura: título > icono > data */
 .card {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-    flex-direction: column;
-    margin: 20px;
+  flex: 0 0 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 25px 20px;
+  margin: 10px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
 }
 
-.details-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;           /* todas en una fila */
-    gap: 12px;
-    overflow-x: auto;            /* scroll horizontal */
-    overflow-y: hidden;
-    padding: 10px;
-    -webkit-overflow-scrolling: touch; 
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
+.card:hover::before {
+  opacity: 1;
+}
+
+.card p:first-child { /* Título */
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.card i { /* Icono Weather Icons grande y centrado */
+  font-size: clamp(4rem, 12vw, 6.5rem);
+  margin: 10px 0 15px;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.card:hover i {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.card p:last-child { /* Data/valor */
+  font-size: 1.8rem;
+  font-weight: 400;
+  opacity: 0.95;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive ajustes para cards y footer */
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 calc(100% - 20px);
+    padding: 20px 15px;
+  }
+  
+  .card i {
+    font-size: 5rem;
+  }
+  
+  .footer {
+    margin-top: 40px;
+    padding: 25px 15px;
+  }
+}
+
+
+/* Detalles con scroll suave */
 .details-container {
-  /* tus estilos existentes */
-  -ms-overflow-style: none;  /* IE y Edge */
-  scrollbar-width: none;     /* Firefox */
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin-top: 20px;
 }
 
 .details-container::-webkit-scrollbar {
-  display: none;             /* Chrome, Safari, Opera */
+  display: none;
 }
 
+/* Mapa integrado bonito y responsive */
 #maps-container {
-  height: 500px !important;
-  width: 500px;
+  width: 100%;
+  height: clamp(300px, 50vw, 500px);
   position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 20px;
+}
+
+/* Mapa interno (para imgs o Leaflet) */
+#maps-container img.mapa,
+#maps-container .map-card {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+.map-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+/* Responsive para tablets y móviles */
+@media (max-width: 768px) {
+  .main-container {
+    padding: 15px;
+    gap: 20px;
+  }
+  
+  .resume-container {
+    padding: 30px 20px;
+    margin-bottom: 20px;
+  }
+  
+  .temperatura {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+  
+  .card {
+    flex: 0 0 250px;
+    margin: 5px;
+  }
+  
+  .details-container {
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 300px;
+  }
+  
+  #maps-container {
+    height: 40vh;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+  
+  .carousel {
+    padding: 15px;
+  }
+  
+  .card {
+    flex: 0 0 calc(100% - 20px);
+  }
+}
+
+/* Mejoras para Leaflet si lo usas (de tus memorias) */
+.leaflet-container {
+  border-radius: 25px !important;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.leaflet-control-zoom {
+  border-radius: 10px !important;
+  background: rgba(255, 255, 255, 0.2) !important;
 }

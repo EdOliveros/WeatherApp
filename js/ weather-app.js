@@ -65,17 +65,21 @@ searchInput.addEventListener('keydown', function(event) {
     } 
 })
 
-function getIcon(details) {
-    const icon = document.getElementById('icon-container')
+function getIcon(icon) {
+    const iconContainer = document.getElementById('details-container')
     
-    icon.innerHTML = `    
-      <img src="https://openweathermap.org/img/wn/${details.Icon.data}@2x.png" alt="" class="img">
+    iconContainer.innerHTML += `    
+      <div class="card">
+        <p>${icon.title}</p>
+        <img src="https://openweathermap.org/img/wn/${icon.data}@2x.png" alt="" class="img">
+        <p>${icon.description}</p>
+      </div>  
     `
 }
 
 function getDetails(details) {
     
-    const icon = document.getElementById('details-container')
+    const carousel = document.getElementById('details-container')
 
     Object.values(details).forEach(item => {
         const div = document.createElement('div');
@@ -85,7 +89,7 @@ function getDetails(details) {
             <i class="wi ${item.iconClass}"></i>
             <p>${item.data}</p>
         `;
-        icon.appendChild(div);
+        carousel.appendChild(div);
     });
 
 }
@@ -94,7 +98,11 @@ async function getWeather(lat, lon) {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=6feea6f3fac0889a380448c28f699944&units=metric`)
     const data = await response.json()
 
-    const Description = capitalizarOracion(data.weather[0].description)
+    const icon = {
+      title: data.weather[0].main,
+      data: data.weather[0].icon,
+      description: capitalizarOracion(data.weather[0].description),
+    }
 
     const details = {
 
@@ -106,95 +114,70 @@ async function getWeather(lat, lon) {
           Temperatura: {
             titulo: "Temperatura",
             data: data.main.temp,
-            iconClass: "wi-day-sunny"
+            iconClass: "wi-thermometer"
           },
           GrndLevel: {
             titulo: "Nivel del suelo",
             data: data.main.grnd_level,
             iconClass: "wi-day-sunny"
-        },
-        Humidity: {
-          titulo: "Humedad",
-          data: data.main.humidity,
-          iconClass: "wi-humidity"
-        },
-        Pressure: {
-          titulo: "Presión",
-          data: data.main.pressure,
-          iconClass: "wi-humidity"
-        },
-        SeaLevel: {
-          titulo: "Nivel del mar",
-          data: data.main.sea_level,
-          iconClass: "wi-humidity"
-        },
-        TemMax: {
-          titulo: "Temperatura Máx",
-          data: data.main.temp_max,
-          iconClass: "wi-humidity"
-        },
-        TempMin: {
-          titulo: "Temperatura Mín",
-          data: data.main.temp_min,
-          iconClass: "wi-humidity"
-        },
-        SensacionTermica: {
-          titulo: "Sensación térmica",
-          data: data.main.feels_like,
-          iconClass: "wi-humidity"
-        },
-        Ciudad: {
-          titulo: "Ciudad",
-          data: data.name,
-          iconClass: "wi-humidity"
-        },
-        Pais: {
-          titulo: "País",
-          data: data.sys.country,
-          iconClass: "wi-humidity"
-        },
-        TimeZone: {
-          titulo: "Zona horaria",
-          data: data.timezone,
-          iconClass: "wi-humidity"
-        },
-        Visibility: {
-          titulo: "Visibilidad",
-          data: data.visibility,
-          iconClass: "wi-humidity"
-        },
-        Description: {
-          titulo: "Descripción",
-          data: Description,
-          iconClass: "wi-humidity"
-        },
-        Main: {
-          titulo: "Clima principal",
-          data: data.weather[0].main,
-          iconClass: "wi-humidity"
-        },
-        Icon: {
-          titulo: "Ícono clima",
-          data: data.weather[0].icon,
-          iconClass: "wi-humidity"
-        },
-        WindSpeed: {
-          titulo: "Velocidad viento",
-          data: data.wind.speed,
-          iconClass: "wi-humidity"
-        },
-        WindDeg: {
-          titulo: "Dirección viento",
-          data: data.wind.deg,
-          iconClass: "wi-humidity"
-        }
-};
+          },
+          Humidity: {
+            titulo: "Humedad",
+            data: data.main.humidity,
+            iconClass: "wi-humidity"
+          },
+          Pressure: {
+            titulo: "Presión",
+            data: data.main.pressure,
+            iconClass: "wi-barometer"
+          },
+          SeaLevel: {
+            titulo: "Nivel del mar",
+            data: data.main.sea_level,
+            iconClass: "wi-humidity"
+          },
+          TemMax: {
+            titulo: "Temperatura Máx",
+            data: data.main.temp_max,
+            iconClass: "wi-thermometer"
+          },
+          TempMin: {
+            titulo: "Temperatura Mín",
+            data: data.main.temp_min,
+            iconClass: "wi-thermometer-exterior"
+          },
+          SensacionTermica: {
+            titulo: "Sensación térmica",
+            data: data.main.feels_like,
+            iconClass: "wi-thermometer-internal"
+          },
+          TimeZone: {
+            titulo: "Zona horaria",
+            data: data.timezone,
+            iconClass: "wi-time-5"
+          },
+          Visibility: {
+            titulo: "Visibilidad",
+            data: data.visibility,
+            iconClass: "wi-dust"
+          },
+          WindSpeed: {
+            titulo: "Velocidad viento",
+            data: data.wind.speed,
+            iconClass: "wi-strong-wind"
+          },
+          WindDeg: {
+            titulo: "Dirección viento",
+            data: data.wind.deg,
+            iconClass: "wi-humidity"
+          }
 
+};
     console.log(details)
 
     renderCiudad(data.name, data.sys.country, data.main.temp, data.weather[0].main, data.main.feels_like)
+    getIcon(icon)
     getDetails(details)
-    getIcon(details)
 }
 
 getCity('Bogota')
