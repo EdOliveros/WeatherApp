@@ -14,17 +14,7 @@ body {
     );
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
-}
-
-.brand {
-    color: #ffffff;
-}
-
-.contenedor {
-    display: flex;
-    flex: auto;
-    flex-direction: column;
-    align-items: center;
+    color: white;
 }
 
 .contenedor-search {
@@ -50,15 +40,43 @@ body {
     outline: none;
 }
 
-#location-contenedor {
+.main-container {
     display: flex;
     flex: auto;
     flex-direction: column;
-    margin: 30px 0px;
+    align-items: center;
+}
+
+.resume-container {
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0px 0px 50px 0px;
+}
+
+.location-contenedor {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    margin: 0px;
     padding: 0px;
     text-align: center;
-    color: white;
 }
+
+.icon-container {
+
+}
+
+.description-icon {
+    opacity: 0.8;
+}
+
+/* .img-container {
+    
+} */
 
 .ciudad {
     margin: 0px;
@@ -78,7 +96,7 @@ body {
 
 /* Cards */
 
-.icons-container {
+.details-container {
     display: flex;
     flex: auto;
     flex-wrap: wrap;
@@ -88,29 +106,6 @@ body {
     margin: 50px;
     padding: 30px;
     width: fit-content;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    margin: 5px;
-    padding: 5px;
-}
-
-.img-container {
-    display: flex;
-    flex: auto;
-    flex-direction: row;
-    align-items: center;
-}
-
-.line {
-    background-color: #67717b;
-    height: 90px;
-    width: 3px;
-    border-radius: 2px;
-    margin-left: 10px;
 }
 
 #maps-container {
