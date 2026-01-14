@@ -1,42 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <title>Weather App Pro</title>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-    <link rel="stylesheet" href="css/weather-icons.css">
-    <link rel="stylesheet" href="css/weather-icons-wind.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap"
+        rel="stylesheet">
 
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Weather Icons -->
+    <link rel="stylesheet" href="css/weather-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
-    <body>
-        <header class="header">
-            <section class="contenedor-search">
-                <input class="search" id="searchInput" type="text" placeholder="Ciudad...">
-            </section>
+
+<body>
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+        <div class="globe globe-3"></div>
+    </div>
+
+    <main class="app-container">
+        <!-- Theme Toggle -->
+        <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">
+            <i class="wi wi-day-sunny"></i>
+        </button>
+
+        <!-- Search Section -->
+        <header class="search-section">
+            <div class="search-box">
+                <i class="wi wi-alien"></i>
+                <input type="text" id="searchInput" placeholder="Buscar ciudad..." autocomplete="off">
+                <button id="searchBtn" aria-label="Buscar"><i class="wi wi-train"></i></button>
+                <div id="suggestions" class="suggestions-dropdown"></div>
+            </div>
         </header>
-        <section class="main-container">
-            <div class="resume-container">
-                <div id="location-contenedor">
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+
+            <!-- Left Column: Current Weather -->
+            <section class="current-weather card glass">
+                <div class="location-badge" id="location-badge">
+                    <span id="cityName">--</span>, <span id="countryCode">--</span>
                 </div>
-            </div>
-            <div class="carousel">
-                <div class="details-container" id="details-container">
+
+                <div class="weather-main">
+                    <div class="weather-icon-wrapper" id="mainIcon">
+                        <i class="wi wi-day-sunny"></i>
+                    </div>
+                    <div class="temp-wrapper">
+                        <span id="tempValue" class="temp-value">--</span>
+                        <span class="temp-unit">°C</span>
+                    </div>
                 </div>
-            </div>
-            <div id="maps-container">
-            </div>
-        </section>
-        <footer>
-            <p class="by">By Ed Oliveros</p>
-            <a class="repo" href="https://github.com/EdOliveros/WeatherApp">Repositorio aqui!</a>
-        </footer>
-        <script src="./js/ weather-app.js"></script>
-    </body>
+
+                <div class="weather-status">
+                    <p id="weatherDesc">--</p>
+                    <p class="feels-like">Sensación: <span id="feelsLike">--</span>°</p>
+                </div>
+            </section>
+
+            <!-- Right Column Top: Map -->
+            <section class="map-section card glass">
+                <div id="map"></div>
+            </section>
+
+            <!-- Bottom Row: Details Grid -->
+            <section class="details-section">
+                <div class="detail-card glass">
+                    <i class="wi wi-humidity"></i>
+                    <div>
+                        <p class="label">Humedad</p>
+                        <p class="value" id="humidity">--%</p>
+                    </div>
+                </div>
+                <div class="detail-card glass">
+                    <i class="wi wi-strong-wind"></i>
+                    <div>
+                        <p class="label">Viento</p>
+                        <p class="value" id="windSpeed">-- m/s</p>
+                    </div>
+                </div>
+                <div class="detail-card glass">
+                    <i class="wi wi-barometer"></i>
+                    <div>
+                        <p class="label">Presión</p>
+                        <p class="value" id="pressure">-- hPa</p>
+                    </div>
+                </div>
+                <div class="detail-card glass">
+                    <i class="wi wi-horizon-alt"></i>
+                    <div>
+                        <p class="label">Visibilidad</p>
+                        <p class="value" id="visibility">-- km</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Developed with <i class="wi wi-heart"></i> by <a href="https://github.com/EdOliveros" target="_blank">Ed
+                Oliveros</a></p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="js/app.js"></script>
+</body>
+
 </html>
